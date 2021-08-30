@@ -13,6 +13,7 @@ const firebaseConfig = {
     messagingSenderId: "888181529765",
     appId: "1:888181529765:web:fef5b6749761d30db9814c",
     measurementId: "G-82LYT3MD76",
+    databaseURL: "https://react-slack-clone-24be5-default-rtdb.firebaseio.com/"
     
   };
   
