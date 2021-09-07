@@ -57,6 +57,10 @@ class MessageForm extends React.Component {
             })
         }
     }
+
+    uploadFile = (file, metadata) => {
+        console.log(file, metadata);
+    }
     render(){
         const {errors} = this.state;
         return(
@@ -92,7 +96,8 @@ class MessageForm extends React.Component {
                     />
                     <FileModal
                     modal={this.state.modal}
-                    closeModal={this.closeModal} />
+                    closeModal={this.closeModal}
+                    uploadFile={this.uploadFile} />
                 </Button.Group>
             </Segment>
         )
