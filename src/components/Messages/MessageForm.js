@@ -59,6 +59,7 @@ class MessageForm extends React.Component {
             <Segment className="message__form">
                 <Input
                 fluid
+                value={this.state.message}
                 name="message"
                 onChange={this.handleChange}
                 style={{marginBottom: '0.7em'}}
@@ -80,6 +81,7 @@ class MessageForm extends React.Component {
                     <Button
                     color="teal"
                     content="Upload Media"
+                    disabled={this.state.loading}
                     labelPosition="right"
                     icon="cloud upload"
                     />
