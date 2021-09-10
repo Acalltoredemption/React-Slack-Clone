@@ -7,7 +7,7 @@ class Starred extends React.Component {
 
     state = {
         activeChannel: '',
-        starredChanels: []
+        starredChannels: []
     }
     displayChannels = starredChannels => 
     starredChannels.length > 0 && starredChannels.map(channel => (
@@ -33,7 +33,7 @@ class Starred extends React.Component {
 
 
     render(){
-        const {starredChanels} = this.state;
+        const {starredChannels} = this.state;
         return(
             <Menu.Menu className="menu">
             <Menu.Item>
@@ -42,7 +42,7 @@ class Starred extends React.Component {
             </span> {" "}
             ({starredChannels.length})
             </Menu.Item>
-            {this.displayChannels(channels)}
+            {this.displayChannels(starredChannels)}
             </Menu.Menu>
         )
     }
