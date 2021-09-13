@@ -142,7 +142,6 @@ class Channels extends React.Component {
         this.props.setPrivateChannel(false);
         this.setState({channel});
         this.clearNotifications();
-
     }
 
     clearNotifications = () => {
