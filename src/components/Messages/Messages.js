@@ -1,11 +1,12 @@
 import React from 'react';
 import MessagesHeader from './MessagesHeader';
 import MessageForm from './MessageForm';
-import {Segment, Comment} from 'semantic-ui-react';
+import {Segment, Comment, FeedExtra} from 'semantic-ui-react';
 import firebase from '../../firebase';
 import Message from './Message';
 import {connect} from 'react-redux';
 import {setUserPosts} from '../../actions';
+import Typing from './Typing';
 
 class Messages extends React.Component {
     state = {
@@ -174,6 +175,9 @@ class Messages extends React.Component {
                 <Segment>
                     <Comment.Group className="messages">
                     {this.state.searchTerm ? this.displayMessages(this.state.searchResults) : this.displayMessages(this.state.messages)}
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                    <span className="user_typing">Douglas is typing</span><Typing />
+                    </div>
                     </Comment.Group>
                 </Segment>
 
