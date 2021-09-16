@@ -7,6 +7,7 @@ import Message from './Message';
 import {connect} from 'react-redux';
 import {setUserPosts} from '../../actions';
 import Typing from './Typing';
+import Skeleton from './Skeleton';
 
 class Messages extends React.Component {
     state = {
@@ -218,7 +219,17 @@ class Messages extends React.Component {
             </div>
         ))
     )
+    displayMessageSkeleton = loading => {
+        loading ? (
+            <React.Fragment>
+                {[...Array(10)].map((_, i) => (
+                    <Skeleton key={i} />
+                ))}
+            </React.Fragment>
+        ) : null
+    }
     render(){
+        
         return(
             <React.Fragment>
                 <MessagesHeader
@@ -231,6 +242,7 @@ class Messages extends React.Component {
                 isChannelStarred={this.state.isChannelStarred} />
                 <Segment>
                     <Comment.Group className="messages">
+                    {this.displayMessageSkeleton(this.state.messagesLoading)}
                     {this.state.searchTerm ? this.displayMessages(this.state.searchResults) : this.displayMessages(this.state.messages)}
                     {this.displayTypingUsers(this.state.typingUsers)}
                     <div ref={node => (this.messagesEnd = node)}></div>
